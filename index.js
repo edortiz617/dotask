@@ -8,10 +8,12 @@ function doWork (task) {
     return `Task ${task} is done!`
 }
 
+
 //Config your routes here
 app.get('/doWork', (req, res) => {
     //Input
     const task = req.query.task;
+
     //doWork
     const result = doWork(task);
     //Output
@@ -19,8 +21,8 @@ app.get('/doWork', (req, res) => {
     console.log(result);
 
     //Client Output
-    // res.send(result)
-    response.json({
+    //response.send(result)
+    res.json({
         message: result
     })
 })
@@ -28,4 +30,4 @@ app.get('/doWork', (req, res) => {
 app.get('/' , (req, res) => res.send('This is the default route.. Happy face'))
 
 
-app.listen(PORT, () => console.log `Server is running on port ${PORT}`);
+app.listen(PORT, () => console.log (`Server is running on port ${PORT}`))
